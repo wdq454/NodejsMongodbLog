@@ -13,5 +13,8 @@
   ],
   "author": "wdq",
   "license": "GNU",
-  "git repository":"https://github.com/wdq454/NodejsMongodbLog"
+  "git repository": "https://github.com/wdq454/NodejsMongodbLog",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
