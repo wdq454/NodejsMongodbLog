@@ -3,16 +3,29 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DDD</title>
+        <title>体侧成绩查询</title>
     </head>
+
     <body>
-        
-        <p>------------------lll123456777-------------------------</p>
-        <form name="myForm" action="/input" method="get">
-        数据一: <input type="text" name="first"><br>
-        数据二: <input type="text" name="second"><br>
-        <input type="submit" name="submit1" value="Write">
-        <input type="submit" name="submit2" value="Read">
+       <div>
+           <h1><p style="text-align: center;">欢迎进入体侧成绩查询系统</p></h1>
+           <form name="Form1" action="/input1" method="get" style="text-align: center;"> 
+               <p style="font-size: 25px;">如需登录请点击 
+               <input type="submit" name="denglu" value="登录" style="font-size: 25px;"></p>
+           </form>
+            <p></p>
+            <form name="Form2" action="/input2" method="get" style="text-align: center;">
+                <p style="font-size: 25px;">如需注册请点击
+                <input type="submit" name="zhuce" value="注册" style="font-size: 25px;"></p>
+            </form>
+       </div> 
+
+        <form name="myForm" action="/input" method="get" >
+            
+            数据一: <input type="text" name="first"><br>
+            数据二: <input type="text" name="second"><br>
+            <input type="submit" name="submit1" value="Write">
+            <input type="submit" name="submit2" value="Read">
         
         </form>
 
