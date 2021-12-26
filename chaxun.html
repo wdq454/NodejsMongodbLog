@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>体测成绩查询</title>
+    </head>
+
+    <h1><p style="text-align: center;"><%= returnVal7 %></p></h1>
+
+    <div style="border: 1px solid black;width: 700px;margin: 0 auto;">
+        <h3><p style="text-align: center;">体测分数如下</p></h3>
+
+        <form name="Form4" action="/fanhui" method="get" style="margin-left: 170px;">
+            
+            <p style="font-size: 25px;">姓名: <%= val1 %></p>
+            <p style="font-size: 25px;">学号: <%= val2 %></p>
+            <p style="font-size: 25px;">800米跑步： <%= val3 %></p>
+            <p style="font-size: 25px;">50米跑步: <%= val4 %></p>
+            <p style="font-size: 25px;">跳远: <%= val5 %></p>
+            <p style="font-size: 25px;">仰卧起坐: <%= val6 %></p>
+            <p style="font-size: 25px;">坐位体前屈: <%= val7 %></p>
+            <input type="submit" name="fanhui" value="返回" style="font-size: 25px;">
+
+        </form>
+
+    </div>
+</html>

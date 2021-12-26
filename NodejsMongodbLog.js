@@ -5,26 +5,7 @@ const ejs=require('ejs')
 
 mongoose.connect('mongodb://localhost:27017/180110910228');
 
-const schema={
-    name:String,
-    age:Number,
-    health:String,
-    hooby:String
-}
-const mydata = mongoose.model('cat1', schema);
-// const kitty = new mydata({ name: 'testZan3' });
-// kitty.save()
-
 app.use('/',express.static('public'))
-app.get("/input",(req,res)=>{
-    //res.send(req.query)
-    console.log(req.query)
-    const kitty = new mydata({ name: req.query.first,health:req.query.second});
-    kitty.save()
-    ejs.renderFile("result.html",{returnVal:"success"},(err,str)=>{
-        res.send(str)
-    })
-})
 
 //跳转到登录页面
 app.get("/input1",(req,res)=>{
@@ -106,7 +87,7 @@ const schema2={
 const guanli = mongoose.model('guanli', schema2);
 const gl1 = new guanli({ name: "wxy",mima:"123456"})
 gl1.save()
-
+//跳转到管理员页面
 app.get("/gldenglu",(req,res)=>{
     var datagl={name:req.query.glname,mima:req.query.glmima};
     guanli.find(datagl,(err,datagl)=>{
@@ -122,6 +103,65 @@ app.get("/gldenglu",(req,res)=>{
                 res.send(str)
             })
         }
+    })
+})
+
+//体测成绩数据库设计
+const schema3={
+    name:String,
+    xuehao:String,
+    run8:String,
+    run5:String,
+    ty:String,
+    ywqz:String,
+    tqq:String
+}
+const tice = mongoose.model('tice', schema3);
+
+//录入
+app.get("/luru",(req,res)=>{
+    if(req.query.xingming==""||req.query.xuehao==""){
+        ejs.renderFile("guanli.html",{returnVal6:"录入失败！姓名、学号不可为空"},(err,str)=>{
+            res.send(str)
+        })
+    }
+    else{
+        const tc1 = new tice({ name: req.query.xingming,xuehao:req.query.xuehao,run8:req.query.run8,run5:req.query.run5,
+            ty:req.query.ty,ywqz:req.query.ywqz,tqq:req.query.tqq});
+            tc1.save()
+            ejs.renderFile("guanli.html",{returnVal6:"录入成功！"},(err,str)=>{
+                res.send(str)
+            })
+    }
+    
+})
+
+//查询
+app.get("/chaxun",(req,res)=>{
+    if(req.query.xingming==""||req.query.xuehao==""){
+        ejs.renderFile("yonghu.html",{returnVal5:"查询失败！姓名和学号不可为空"},(err,str)=>{
+            res.send(str)
+        })
+    }
+    else{
+        var xmdata=req.query.xingming;
+        var xhdata=req.query.xuehao;
+        tice.find({name:xmdata,xuehao:xhdata},(err,data)=>{
+            console.log(data[0]._doc.name)
+            //_doc.name
+            ejs.renderFile("chaxun.html",{returnVal7:"查询成功！",val1:data[0]._doc.name,
+            val2:data[0]._doc.xuehao,val3:data[0]._doc.run8,val4:data[0]._doc.run5,
+            val5:data[0]._doc.ty,val6:data[0]._doc.ywqz,val7:data[0]._doc.tqq,},(err,str)=>{
+                res.send(str)
+            })
+        })
+    }
+})
+
+//返回
+app.get("/fanhui",(req,res)=>{
+    ejs.renderFile("yonghu.html",{returnVal5:"欢迎进入体测成绩查询系统"},(err,str)=>{
+        res.send(str)
     })
 })
 
