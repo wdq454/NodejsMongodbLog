@@ -3,18 +3,19 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>体侧成绩查询</title>
+        <title>体测成绩查询</title>
     </head>
 
     <body>
-       <div>
-           <h1><p style="text-align: center;"><%= returnVal1 %></p></h1>
-           <form style="text-align: center;"> 
+        <h1><p style="text-align: center;"><%= returnVal1 %></p></h1>
+        <div style="border: 1px solid black;width: 700px;text-align: center;margin: 0 auto;">
+           
+           <form name="Form5" action="/denglu1" method="get" style="text-align: center;"> 
                <p style="font-size: 25px;">管理员登录请点击
                <input type="submit" name="denglu" value="管理员登录" style="font-size: 25px;"></p>
            </form>
             <p></p>
-            <form style="text-align: center;">
+            <form name="Form6" action="/denglu2" method="get" style="text-align: center;">
                 <p style="font-size: 25px;">用户登录请点击
                 <input type="submit" name="zhuce" value="用户登录" style="font-size: 25px;"></p>
             </form>

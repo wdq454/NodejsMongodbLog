@@ -3,16 +3,23 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>体侧成绩查询</title>
+        <title>体测成绩查询</title>
     </head>
 
     <h1><p style="text-align: center;"><%= returnVal2 %></p></h1>
 
-    <form name="Form3" action="/zhuce" method="get" style="text-align: center;">
+    <div style="border: 1px solid black;width: 700px;text-align: center;margin: 0 auto;">
+        <h3><p style="text-align: center;">请输入用户名和密码进行注册</p></h3>
+
+        <form name="Form3" action="/zhuce" method="get" style="text-align: center;">
             
-        <p style="font-size: 25px;">用户名: <input type="text" name="name" style="font-size: 20px;"></p>
-        <p style="font-size: 25px;">密码: <input type="text" name="mima" style="font-size: 20px;"></p>
-        <input type="submit" name="zhuce" value="注册" style="font-size: 25px;">
+            <p style="font-size: 25px;">用户名: <input type="text" name="name" style="font-size: 20px;"></p>
+            <p style="font-size: 25px;">密码: <input type="text" name="mima" style="font-size: 20px;"></p>
+            <input type="submit" name="zhuce" value="注册" style="font-size: 25px;">
+
+        </form>
+
+    </div>
+
     
-    </form>
 </html>

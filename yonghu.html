@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>体测成绩查询</title>
+    </head>
+
+    <h1><p style="text-align: center;"><%= returnVal5 %></p></h1>
+
+    <div style="border: 1px solid black;width: 700px;text-align: center;margin: 0 auto;">
+        <h3><p style="text-align: center;">请输入姓名和学号查询体测成绩</p></h3>
+
+        <form name="Form3" action="/chaxun" method="get" style="text-align: center;">
+            
+            <p style="font-size: 25px;">姓名: <input type="text" name="xingming" style="font-size: 20px;"></p>
+            <p style="font-size: 25px;">学号: <input type="text" name="xuehao" style="font-size: 20px;"></p>
+            <input type="submit" name="chaxun" value="查询" style="font-size: 25px;">
+
+        </form>
+    </div>
+</html>
