@@ -3,7 +3,7 @@ const app=express()
 const mongoose = require('mongoose');
 const ejs=require('ejs')
 
-mongoose.connect('mongodb://localhost:27017/180110910228');
+mongoose.connect('mongodb://172.21.2.236:27017/180110910228');
 
 app.use('/',express.static('public'))
 
@@ -147,13 +147,22 @@ app.get("/chaxun",(req,res)=>{
         var xmdata=req.query.xingming;
         var xhdata=req.query.xuehao;
         tice.find({name:xmdata,xuehao:xhdata},(err,data)=>{
-            console.log(data[0]._doc.name)
+            //console.log(data[0]._doc.name)
             //_doc.name
-            ejs.renderFile("chaxun.html",{returnVal7:"查询成功！",val1:data[0]._doc.name,
-            val2:data[0]._doc.xuehao,val3:data[0]._doc.run8,val4:data[0]._doc.run5,
-            val5:data[0]._doc.ty,val6:data[0]._doc.ywqz,val7:data[0]._doc.tqq,},(err,str)=>{
-                res.send(str)
-            })
+            if(data.length==0){
+                ejs.renderFile("yonghu.html",{returnVal5:"查询失败！未查询到相关信息"},(err,str)=>{
+                    res.send(str)
+                })
+            }
+            else{
+                ejs.renderFile("chaxun.html",{returnVal7:"查询成功！",val1:data[0]._doc.name,
+                val2:data[0]._doc.xuehao,val3:data[0]._doc.run8,val4:data[0]._doc.run5,
+                val5:data[0]._doc.ty,val6:data[0]._doc.ywqz,val7:data[0]._doc.tqq,},(err,str)=>{
+                    res.send(str)
+                })
+
+            }
+            
         })
     }
 })
